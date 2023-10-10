@@ -15,7 +15,7 @@ process sayHello {
 process writeHello {
   input:
     val x
-  ouput:
+  output:
     path "*.txt", emit: file
   script:
     """
