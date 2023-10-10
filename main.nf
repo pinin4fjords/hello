@@ -19,7 +19,7 @@ process writeHello {
     path "*.txt", emit: file
   script:
     """
-    echo -e "$val" > foo.txt
+    echo -e "$x" > foo.txt
     """
 }
 
