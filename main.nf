@@ -14,4 +14,7 @@ process sayHello {
 
 workflow {
   Channel.of('Bonjour', 'Ciao', 'Hello', 'Hola') | sayHello | view
+
+  emit:
+    reults = sayHello.out
 }
