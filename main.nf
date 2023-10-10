@@ -24,7 +24,10 @@ process writeHello {
 }
 
 workflow {
-  Channel.of('Bonjour', 'Ciao', 'Hello', 'Hola') | sayHello | view
+  ch_hello = Channel.of('Bonjour', 'Ciao', 'Hello', 'Hola')
+
+  sayHello(ch_hello)
+  writeHello(ch_hello.out)
 
   emit:
     results = writeHello.out.file
