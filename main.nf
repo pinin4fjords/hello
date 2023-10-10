@@ -12,9 +12,20 @@ process sayHello {
     """
 }
 
+process writeHello {
+  input:
+    val x
+  ouput:
+    path "*.txt", emit: file
+  script:
+    """
+    echo -e "$val" > foo.txt
+    """
+}
+
 workflow {
   Channel.of('Bonjour', 'Ciao', 'Hello', 'Hola') | sayHello | view
 
   emit:
-    reults = sayHello.out
+    results = writeHello.out.file
 }
