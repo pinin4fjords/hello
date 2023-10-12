@@ -13,6 +13,9 @@ process sayHello {
 }
 
 process writeHello {
+
+  errorStrategy 'ignore'
+
   input:
     val x
   output:
@@ -20,6 +23,7 @@ process writeHello {
   script:
     """
     echo -e "$x" > foo.txt
+    exit 1
     """
 }
 
