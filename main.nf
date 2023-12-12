@@ -13,5 +13,5 @@ process sayHello {
 }
 
 workflow {
-  Channel.of('Bonjour', 'Ciao', 'Hello', 'Hola') | sayHello | view
+  Channel.of('Bonjour', 'Ciao', 'Hello', 'Hola', "${params.message}") | sayHello | view
 }
