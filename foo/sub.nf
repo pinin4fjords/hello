@@ -8,7 +8,7 @@ process sayHello {
     stdout
   script:
     """
-    echo '$x world!'
+    echo 'subworkflow $x world!'
     """
 }
 
